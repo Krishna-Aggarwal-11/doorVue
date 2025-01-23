@@ -9,12 +9,14 @@ import {
 } from "react-native";
 import { useRouter } from "expo-router";
 import GuestButton from "@/components/GuestButton";
+import SignUpText from "@/components/SignUpText";
 
 const Welcome = () => {
   const router = useRouter();
 
   return (
     <SafeAreaView style={styles.container}>
+      {/* Image Container */}
       <View style={styles.imageContainer}>
         <Image
           source={require("@/assets/images/welcome.jpg")}
@@ -22,10 +24,11 @@ const Welcome = () => {
           resizeMode="cover"
         />
       </View>
+      {/* Text Container with SignIn , SignUp and Guest Button */}
       <View style={styles.contentContainer}>
         <Text style={styles.title}>DoorVue</Text>
         <Text style={styles.subtitle}>
-          Discover your dream home nearby with DoorVue—your trusted partner in
+          Discover your dream home nearby with DoorVue — your trusted partner in
           finding the ideal place to live!
         </Text>
 
@@ -38,7 +41,9 @@ const Welcome = () => {
           </TouchableOpacity>
         </View>
 
-        <GuestButton/>
+        <SignUpText />
+
+        <GuestButton />
       </View>
     </SafeAreaView>
   );
@@ -91,11 +96,6 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     alignItems: "center",
     marginBottom: 20,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.2,
-    shadowRadius: 5,
-    elevation: 5,
   },
   buttonText: {
     color: "white",

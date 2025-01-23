@@ -19,6 +19,7 @@ const profile = () => {
     username: "",
   });
 
+  // getting username and profile
   useEffect(() => {
     const fetchUserName = async () => {
       const user = await AsyncStorage.getItem("DoorVue");
@@ -31,14 +32,14 @@ const profile = () => {
     fetchUserName();
   }, []);
 
+  // for logout
   const handleLogout = async () => {
     await AsyncStorage.removeItem("DoorVue");
     router.push("/signin");
-  }
+  };
   return (
     <ScrollView style={styles.container}>
       <View style={styles.headerContainer}>
-
         <View style={styles.profileImageContainer}>
           <Image
             source={{
@@ -57,24 +58,29 @@ const profile = () => {
         </TouchableOpacity>
       </View>
 
+      {/* action buttons for future */}
       <View style={styles.actionContainer}>
-        <TouchableOpacity 
-          style={styles.actionButton} 
-          onPress={() => {Alert.alert("Coming soon")}}
+        <TouchableOpacity
+          style={styles.actionButton}
+          onPress={() => {
+            Alert.alert("Coming soon");
+          }}
         >
           <Ionicons name="key-outline" color="blue" size={20} />
           <Text style={styles.actionButtonText}>Change Password</Text>
         </TouchableOpacity>
-        <TouchableOpacity 
-          style={styles.actionButton} 
-          onPress={() => {Alert.alert("Coming soon")}}
+        <TouchableOpacity
+          style={styles.actionButton}
+          onPress={() => {
+            Alert.alert("Coming soon");
+          }}
         >
           <Ionicons name="bookmark-outline" color="blue" size={20} />
           <Text style={styles.actionButtonText}>Save Property</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity 
-          style={[styles.actionButton, styles.logoutButton]} 
+        <TouchableOpacity
+          style={[styles.actionButton, styles.logoutButton]}
           onPress={handleLogout}
         >
           <Ionicons name="log-out-outline" color="white" size={20} />
@@ -96,7 +102,6 @@ const styles = StyleSheet.create({
     paddingVertical: 30,
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
-
   },
   profileImageContainer: {
     position: "relative",
@@ -139,29 +144,28 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
   },
   actionButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     paddingVertical: 15,
     paddingHorizontal: 15,
-    backgroundColor: 'white',
+    backgroundColor: "white",
     borderRadius: 10,
     marginBottom: 10,
   },
   actionButtonText: {
     marginLeft: 10,
     fontSize: 16,
-    color: 'blue',
+    color: "blue",
   },
   logoutButton: {
-    backgroundColor: 'red',
+    backgroundColor: "red",
   },
   logoutButtonText: {
     marginLeft: 10,
     fontSize: 16,
-    color: 'white',
-    fontWeight: '600',
+    color: "white",
+    fontWeight: "600",
   },
- 
 });
 
 export default profile;

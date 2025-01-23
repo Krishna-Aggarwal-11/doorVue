@@ -49,6 +49,7 @@ export default function ExploreScreen() {
     fetchHouses();
   }, []);
 
+  // for filtering
   useEffect(() => {
     filterHouses();
   }, [searchQuery, houses, selectedCategory]);
@@ -88,6 +89,8 @@ export default function ExploreScreen() {
       setIsLoading(false);
     }
   };
+
+  // for category counts
   useEffect(() => {
     if (houses.length > 0) {
       const categoryCounts = houses.reduce(

@@ -10,6 +10,7 @@ import React, { useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Link, useRouter } from "expo-router";
 import GuestButton from "@/components/GuestButton";
+import SignUpText from "@/components/SignUpText";
 
 const signin = () => {
   const router = useRouter();
@@ -64,16 +65,9 @@ const signin = () => {
         <Text style={styles.buttonText}>Sign In</Text>
       </Pressable>
 
-      <View style={styles.signupContainer}>
-        <Text style={styles.signupText}>Don't have an account? </Text>
-        <Link href="/signup" asChild>
-          <Pressable>
-            <Text style={styles.signupLink}>Sign Up</Text>
-          </Pressable>
-        </Link>
-      </View>
+      <SignUpText />
 
-      <GuestButton/>
+      <GuestButton />
     </View>
   );
 };
@@ -115,20 +109,5 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     textAlign: "center",
-  },
-  signupContainer: {
-    flexDirection: "row",
-    marginTop: 20,
-    marginBottom: 20,
-    alignItems: "center",
-  },
-  signupText: {
-    fontSize: 14,
-    color: "#666",
-  },
-  signupLink: {
-    fontSize: 14,
-    color: "#007AFF",
-    fontWeight: "bold",
   },
 });

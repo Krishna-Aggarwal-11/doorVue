@@ -37,6 +37,7 @@ export default function TabOneScreen() {
   const [error, setError] = useState<string | null>(null);
   const [username, setUsername] = useState<string | null>(null);
 
+  // getting username and profile
   useEffect(() => {
     const fetchUserName = async () => {
       const user = await AsyncStorage.getItem("DoorVue");
@@ -53,6 +54,7 @@ export default function TabOneScreen() {
     fetchHouses();
   }, []);
 
+  // for filtering
   useEffect(() => {
     filterHouses();
   }, [searchQuery, houses, selectedCategory]);
